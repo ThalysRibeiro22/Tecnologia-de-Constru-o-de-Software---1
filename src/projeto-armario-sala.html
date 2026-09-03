@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Armário planejado - sala de estar | MadeiraFlow</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark">MadeiraFlow</span>
+        <span class="brand__tag">gestão de marcenaria</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Painel</a></li>
+          <li><a href="cliente.html">Clientes</a></li>
+          <li><a href="novo-projeto.html">Novo projeto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-intro">
+      <h1>Armário planejado &mdash; sala de estar</h1>
+      <p>Cliente: <a href="cliente.html">Renata Almeida</a> &middot; criado em 12/08/2026</p>
+      <span class="tag tag--producao">Em produção</span>
+    </div>
+
+    <section class="sheet" aria-labelledby="descricao-heading">
+      <h2 id="descricao-heading">Descrição do projeto</h2>
+      <p class="sheet__meta">ambiente: sala de estar</p>
+      <p>Armário planejado sob medida com portas de correr, nichos para televisão e iluminação embutida. Estrutura em MDF com acabamento fosco.</p>
+    </section>
+
+    <section class="sheet" aria-labelledby="materiais-heading">
+      <h2 id="materiais-heading">Materiais associados</h2>
+      <table>
+        <caption>materiais previstos para este projeto</caption>
+        <thead>
+          <tr>
+            <th scope="col">Material</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Custo unitário</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>MDF branco 18mm</td>
+            <td>Chapa</td>
+            <td>6 unidades</td>
+            <td>R$ 210,00</td>
+          </tr>
+          <tr>
+            <td>Corrediça telescópica</td>
+            <td>Ferragem</td>
+            <td>4 unidades</td>
+            <td>R$ 45,00</td>
+          </tr>
+          <tr>
+            <td>Perfil de alumínio para porta de correr</td>
+            <td>Ferragem</td>
+            <td>2 unidades</td>
+            <td>R$ 120,00</td>
+          </tr>
+          <tr>
+            <td>Fita de borda branca</td>
+            <td>Revestimento</td>
+            <td>20 metros</td>
+            <td>R$ 3,50</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sheet" aria-labelledby="orcamento-heading">
+      <h2 id="orcamento-heading">Orçamento</h2>
+      <p class="sheet__meta">status: <span class="tag tag--aprovado">Aprovado</span></p>
+      <table>
+        <caption>resumo de valores do orçamento</caption>
+        <tbody>
+          <tr>
+            <td>Materiais</td>
+            <td>R$ 1.750,00</td>
+          </tr>
+          <tr>
+            <td>Mão de obra</td>
+            <td>R$ 1.200,00</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td>R$ 2.950,00</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <section class="sheet" aria-labelledby="etapas-heading">
+      <h2 id="etapas-heading">Andamento</h2>
+      <ol class="timeline">
+        <li>
+          <time datetime="2026-08-12">12/08</time>
+          <p>Projeto criado a partir da solicitação do cliente.</p>
+        </li>
+        <li>
+          <time datetime="2026-08-15">15/08</time>
+          <p>Orçamento elaborado e enviado para aprovação.</p>
+        </li>
+        <li>
+          <time datetime="2026-08-18">18/08</time>
+          <p>Orçamento aprovado pelo cliente.</p>
+        </li>
+        <li data-current="true">
+          <time datetime="2026-08-25">25/08</time>
+          <p>Projeto em produção.</p>
+        </li>
+      </ol>
+    </section>
+
+    <div class="actions">
+      <a class="button" href="index.html">Voltar ao painel</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>MadeiraFlow &mdash; sistema de gerenciamento de marcenaria. Protótipo estrutural, Etapa 02.</p>
+  </footer>
+</body>
+</html>

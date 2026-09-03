@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Novo projeto | MadeiraFlow</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark">MadeiraFlow</span>
+        <span class="brand__tag">gestão de marcenaria</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Painel</a></li>
+          <li><a href="cliente.html">Clientes</a></li>
+          <li><a href="novo-projeto.html" aria-current="page">Novo projeto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-intro">
+      <h1>Cadastrar projeto</h1>
+      <p>Registre um novo pedido de móvel planejado, vinculado a um cliente já cadastrado.</p>
+    </div>
+
+    <section class="sheet" aria-labelledby="form-heading">
+      <h2 id="form-heading">Dados do projeto</h2>
+      <p class="sheet__meta">campos marcados com * são obrigatórios</p>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Vínculo com o cliente</legend>
+          <div class="field">
+            <label for="cliente">Cliente *</label>
+            <select id="cliente" name="cliente" required>
+              <option value="">Selecione um cliente</option>
+              <option value="renata-almeida">Renata Almeida</option>
+              <option value="joao-santos">João Pedro Santos</option>
+              <option value="marcos-lima">Marcos Vinícius Lima</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Descrição do móvel</legend>
+          <div class="field">
+            <label for="titulo">Título do projeto *</label>
+            <input type="text" id="titulo" name="titulo" placeholder="Ex: Armário planejado - sala de estar" required />
+          </div>
+          <div class="field">
+            <label for="ambiente">Ambiente de destino</label>
+            <input type="text" id="ambiente" name="ambiente" placeholder="Ex: sala de estar, cozinha, quarto" />
+          </div>
+          <div class="field">
+            <label for="descricao">Descrição detalhada *</label>
+            <textarea id="descricao" name="descricao" required></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Situação inicial</legend>
+          <div class="field">
+            <label for="status">Status do projeto</label>
+            <select id="status" name="status">
+              <option value="orcamento" selected>Orçamento</option>
+              <option value="aprovado">Aprovado</option>
+              <option value="producao">Em produção</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="observacoes">Observações</label>
+            <textarea id="observacoes" name="observacoes"></textarea>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit">Criar projeto</button>
+          <button type="reset" class="secondary">Limpar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>MadeiraFlow &mdash; sistema de gerenciamento de marcenaria. Protótipo estrutural, Etapa 02.</p>
+  </footer>
+</body>
+</html>

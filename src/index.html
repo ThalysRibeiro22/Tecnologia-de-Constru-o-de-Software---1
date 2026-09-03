@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel de projetos | MadeiraFlow</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark">MadeiraFlow</span>
+        <span class="brand__tag">gestão de marcenaria</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html" aria-current="page">Painel</a></li>
+          <li><a href="cliente.html">Clientes</a></li>
+          <li><a href="novo-projeto.html">Novo projeto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-intro">
+      <h1>Painel de projetos</h1>
+      <p>Visão geral de tudo o que está em andamento na marcenaria, do orçamento até a entrega.</p>
+    </div>
+
+    <section aria-labelledby="resumo-heading">
+      <h2 id="resumo-heading" class="visually-hidden" hidden>Resumo</h2>
+      <div class="summary">
+        <div class="summary__item">
+          <p class="summary__value">7</p>
+          <p class="summary__label">Projetos em andamento</p>
+        </div>
+        <div class="summary__item">
+          <p class="summary__value">2</p>
+          <p class="summary__label">Aguardando aprovação</p>
+        </div>
+        <div class="summary__item">
+          <p class="summary__value">3</p>
+          <p class="summary__label">Em produção</p>
+        </div>
+        <div class="summary__item">
+          <p class="summary__value">12</p>
+          <p class="summary__label">Entregues este ano</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sheet" aria-labelledby="filtros-heading">
+      <h2 id="filtros-heading">Buscar projetos</h2>
+      <p class="sheet__meta">filtro por cliente ou status</p>
+      <form action="#" method="get">
+        <div class="field" style="max-width: 320px;">
+          <label for="busca-cliente">Cliente</label>
+          <input type="search" id="busca-cliente" name="cliente" placeholder="Nome do cliente" />
+        </div>
+        <div class="field" style="max-width: 320px;">
+          <label for="filtro-status">Status</label>
+          <select id="filtro-status" name="status">
+            <option value="">Todos</option>
+            <option value="orcamento">Orçamento</option>
+            <option value="aprovado">Aprovado</option>
+            <option value="producao">Em produção</option>
+            <option value="pronto">Pronto</option>
+            <option value="entregue">Entregue</option>
+          </select>
+        </div>
+        <div class="actions">
+          <button type="submit">Filtrar</button>
+        </div>
+      </form>
+    </section>
+
+    <section aria-labelledby="lista-heading">
+      <h2 id="lista-heading">Projetos recentes</h2>
+      <div class="card-list">
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__title">Armário planejado - sala de estar</h3>
+            <span class="tag tag--producao">Em produção</span>
+          </div>
+          <p class="card__client">Cliente: Renata Almeida</p>
+          <p class="card__desc">Armário sob medida com portas de correr e nichos para TV.</p>
+          <div class="card__footer">
+            <span>Criado em 12/08/2026</span>
+            <a href="projeto-armario-sala.html">Ver detalhes</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__title">Cozinha planejada completa</h3>
+            <span class="tag tag--pendente">Orçamento pendente</span>
+          </div>
+          <p class="card__client">Cliente: João Pedro Santos</p>
+          <p class="card__desc">Cozinha em L com bancada e armários superiores.</p>
+          <div class="card__footer">
+            <span>Criado em 20/08/2026</span>
+            <a href="projeto-cozinha.html">Ver detalhes</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__title">Guarda-roupa casal</h3>
+            <span class="tag tag--aprovado">Aprovado</span>
+          </div>
+          <p class="card__client">Cliente: Marcos Vinícius Lima</p>
+          <p class="card__desc">Guarda-roupa de 6 portas com espelho central.</p>
+          <div class="card__footer">
+            <span>Criado em 25/08/2026</span>
+            <a href="projeto-guarda-roupa.html">Ver detalhes</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__title">Escrivaninha para home office</h3>
+            <span class="tag tag--entregue">Entregue</span>
+          </div>
+          <p class="card__client">Cliente: Renata Almeida</p>
+          <p class="card__desc">Escrivaninha compacta com gaveteiro e nichos.</p>
+          <div class="card__footer">
+            <span>Criado em 02/07/2026</span>
+            <a href="projeto-escrivaninha.html">Ver detalhes</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>MadeiraFlow &mdash; sistema de gerenciamento de marcenaria. Protótipo estrutural, Etapa 02.</p>
+  </footer>
+</body>
+</html>

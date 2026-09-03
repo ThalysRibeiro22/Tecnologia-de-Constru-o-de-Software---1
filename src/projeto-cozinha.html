@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cozinha planejada completa | MadeiraFlow</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark">MadeiraFlow</span>
+        <span class="brand__tag">gestão de marcenaria</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Painel</a></li>
+          <li><a href="cliente.html">Clientes</a></li>
+          <li><a href="novo-projeto.html">Novo projeto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-intro">
+      <h1>Cozinha planejada completa</h1>
+      <p>Cliente: <a href="cliente.html">João Pedro Santos</a> &middot; criado em 20/08/2026</p>
+      <span class="tag tag--pendente">Orçamento pendente</span>
+    </div>
+
+    <section class="sheet" aria-labelledby="descricao-heading">
+      <h2 id="descricao-heading">Descrição do projeto</h2>
+      <p class="sheet__meta">ambiente: cozinha</p>
+      <p>Cozinha planejada em formato L, com bancada, armários superiores com portas de vidro e gaveteiro para talheres e panelas.</p>
+    </section>
+
+    <section class="sheet" aria-labelledby="materiais-heading">
+      <h2 id="materiais-heading">Materiais associados</h2>
+      <table>
+        <caption>materiais previstos para este projeto</caption>
+        <thead>
+          <tr>
+            <th scope="col">Material</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Custo unitário</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>MDF amadeirado 18mm</td>
+            <td>Chapa</td>
+            <td>10 unidades</td>
+            <td>R$ 230,00</td>
+          </tr>
+          <tr>
+            <td>Porta de vidro temperado</td>
+            <td>Vidro</td>
+            <td>4 unidades</td>
+            <td>R$ 180,00</td>
+          </tr>
+          <tr>
+            <td>Puxador em alumínio</td>
+            <td>Ferragem</td>
+            <td>12 unidades</td>
+            <td>R$ 18,00</td>
+          </tr>
+          <tr>
+            <td>Fita de borda amadeirada</td>
+            <td>Revestimento</td>
+            <td>35 metros</td>
+            <td>R$ 3,80</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="sheet" aria-labelledby="orcamento-heading">
+      <h2 id="orcamento-heading">Orçamento</h2>
+      <p class="sheet__meta">status: <span class="tag tag--pendente">Aguardando aprovação</span></p>
+      <table>
+        <caption>resumo de valores do orçamento</caption>
+        <tbody>
+          <tr>
+            <td>Materiais</td>
+            <td>R$ 3.640,00</td>
+          </tr>
+          <tr>
+            <td>Mão de obra</td>
+            <td>R$ 2.100,00</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td>R$ 5.740,00</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <section class="sheet" aria-labelledby="etapas-heading">
+      <h2 id="etapas-heading">Andamento</h2>
+      <ol class="timeline">
+        <li>
+          <time datetime="2026-08-20">20/08</time>
+          <p>Projeto criado a partir da solicitação do cliente.</p>
+        </li>
+        <li data-current="true">
+          <time datetime="2026-08-24">24/08</time>
+          <p>Orçamento elaborado e enviado para aprovação.</p>
+        </li>
+      </ol>
+    </section>
+
+    <div class="actions">
+      <a class="button" href="index.html">Voltar ao painel</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>MadeiraFlow &mdash; sistema de gerenciamento de marcenaria. Protótipo estrutural, Etapa 02.</p>
+  </footer>
+</body>
+</html>

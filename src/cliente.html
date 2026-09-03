@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clientes | MadeiraFlow</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark">MadeiraFlow</span>
+        <span class="brand__tag">gestão de marcenaria</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Painel</a></li>
+          <li><a href="cliente.html" aria-current="page">Clientes</a></li>
+          <li><a href="novo-projeto.html">Novo projeto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-intro">
+      <h1>Clientes</h1>
+      <p>Cadastre um novo cliente ou consulte quem já solicitou projetos na marcenaria.</p>
+    </div>
+
+    <section class="sheet" aria-labelledby="cadastro-heading">
+      <h2 id="cadastro-heading">Cadastrar cliente</h2>
+      <p class="sheet__meta">dados de contato</p>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Identificação</legend>
+          <div class="field">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" required />
+          </div>
+          <div class="field">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required />
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Endereço</legend>
+          <div class="field">
+            <label for="endereco">Endereço completo</label>
+            <input type="text" id="endereco" name="endereco" placeholder="Rua, número, bairro, cidade" />
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="observacoes">Observações</label>
+          <span class="hint">preferências de material, estilo ou outras informações relevantes</span>
+          <textarea id="observacoes" name="observacoes"></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Salvar cliente</button>
+          <button type="reset" class="secondary">Limpar</button>
+        </div>
+      </form>
+    </section>
+
+    <section aria-labelledby="lista-clientes-heading">
+      <h2 id="lista-clientes-heading">Clientes cadastrados</h2>
+      <div class="card-list">
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__title">Renata Almeida</h3>
+          </div>
+          <p class="card__desc">(11) 98765-4321 &middot; renata.almeida@email.com</p>
+          <div class="card__footer">
+            <span>2 projetos vinculados</span>
+            <a href="index.html">Ver projetos</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__title">João Pedro Santos</h3>
+          </div>
+          <p class="card__desc">(11) 91234-5678 &middot; joao.santos@email.com</p>
+          <div class="card__footer">
+            <span>1 projeto vinculado</span>
+            <a href="projeto-cozinha.html">Ver projeto</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <h3 class="card__title">Marcos Vinícius Lima</h3>
+          </div>
+          <p class="card__desc">(11) 99876-1122 &middot; marcos.lima@email.com</p>
+          <div class="card__footer">
+            <span>1 projeto vinculado</span>
+            <a href="projeto-guarda-roupa.html">Ver projeto</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>MadeiraFlow &mdash; sistema de gerenciamento de marcenaria. Protótipo estrutural, Etapa 02.</p>
+  </footer>
+</body>
+</html>
