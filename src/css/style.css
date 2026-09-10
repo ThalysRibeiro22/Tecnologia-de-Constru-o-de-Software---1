@@ -16,6 +16,19 @@
   --font-display: "Big Shoulders Display", sans-serif;
   --font-body: "IBM Plex Sans", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
+
+  /* Escala de espaçamentos usada de forma consistente em todos os componentes */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Larguras de conteúdo: a versão "wide" é usada em telas grandes de desktop */
+  --content-max: 960px;
+  --content-max-wide: 1120px;
 }
 
 * {
@@ -40,6 +53,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 a {
@@ -67,13 +81,13 @@ textarea:focus-visible {
 }
 
 .site-header__inner {
-  max-width: 960px;
+  max-width: var(--content-max);
   margin: 0 auto;
-  padding: 18px 24px;
+  padding: var(--space-md) var(--space-lg);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: var(--space-lg);
   flex-wrap: wrap;
 }
 
@@ -132,10 +146,10 @@ textarea:focus-visible {
 
 main {
   flex: 1;
-  max-width: 960px;
+  max-width: var(--content-max);
   width: 100%;
   margin: 0 auto;
-  padding: 40px 24px 64px;
+  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
 }
 
 .page-intro {
@@ -341,6 +355,11 @@ form {
   font-weight: 400;
 }
 
+/* Usada nos campos de filtro do painel, no lugar de largura fixa via style inline */
+.field--narrow {
+  max-width: 320px;
+}
+
 input,
 select,
 textarea {
@@ -403,10 +422,24 @@ button.secondary,
 
 /* Tabela de materiais e orçamento */
 
+/* Em telas estreitas, a tabela rola horizontalmente dentro deste container
+   em vez de espremer as colunas ou vazar para fora da página. */
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.92rem;
+}
+
+/* Tabela de materiais tem 4 colunas: garante uma largura mínima legível,
+   preferindo rolagem horizontal dentro do .table-scroll a espremer o texto. */
+.table--materials {
+  min-width: 480px;
 }
 
 caption {
@@ -475,9 +508,132 @@ tfoot td {
   color: var(--paper-muted);
 }
 
-@media (max-width: 560px) {
+/* ==========================================================================
+   Responsividade
+
+   Duas faixas principais, além de um ajuste extra para desktops bem largos:
+   - até 1024px  -> tablet (ex.: 768 x 1024)
+   - até 600px   -> smartphone (ex.: 390 x 844)
+   - acima de 1200px -> aproveita melhor o espaço em telas de desktop maiores
+   ========================================================================== */
+
+/* Desktop largo: usa mais espaço horizontal disponível (ex.: 1440px) */
+@media (min-width: 1201px) {
+  .site-header__inner,
+  main {
+    max-width: var(--content-max-wide);
+  }
+
+  .card-list {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    align-items: start;
+  }
+}
+
+/* Tablet: até 1024px (cobre a viewport de referência 768 x 1024) */
+@media (max-width: 1024px) {
+  main {
+    padding: var(--space-lg) var(--space-md) var(--space-xl);
+  }
+
+  .site-header__inner {
+    padding: var(--space-sm) var(--space-md);
+    gap: var(--space-md);
+  }
+
+  .main-nav ul {
+    gap: var(--space-2xs);
+  }
+
+  .main-nav a {
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  /* Resumo do painel passa a usar 2 colunas de forma explícita no tablet */
+  .summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sheet {
+    padding: var(--space-lg);
+  }
+}
+
+/* Smartphone: até 600px (cobre a viewport de referência 390 x 844) */
+@media (max-width: 600px) {
+  main {
+    padding: var(--space-lg) var(--space-md) var(--space-xl);
+  }
+
+  /* Cabeçalho reorganizado em coluna, com o menu ocupando a largura toda
+     e alvos de toque mais confortáveis */
+  .site-header__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .main-nav {
+    width: 100%;
+  }
+
+  .main-nav ul {
+    width: 100%;
+    gap: var(--space-xs);
+  }
+
+  .main-nav a {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: var(--space-sm);
+  }
+
+  .page-intro h1 {
+    font-size: 1.9rem;
+  }
+
+  .sheet {
+    padding: var(--space-md);
+  }
+
+  /* Resumo do painel em uma única coluna, itens empilhados */
+  .summary {
+    grid-template-columns: 1fr;
+  }
+
+  /* Campos de filtro do painel deixam de ter largura fixa e ocupam tudo */
+  .field--narrow {
+    max-width: 100%;
+  }
+
+  form {
+    max-width: 100%;
+  }
+
+  /* Botões e ações empilhados, ocupando a largura toda para facilitar o toque */
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions button,
+  .actions .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .card__top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card__footer {
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
   .timeline li {
     grid-template-columns: 1fr;
-    gap: 2px;
+    gap: var(--space-2xs);
   }
 }
