@@ -27,14 +27,24 @@ Marcenarias de pequeno e médio porte, marceneiros autônomos e equipes administ
 * Acompanhamento do status do projeto
 * Consulta e listagem de projetos
 
-## Tecnologias planejadas
+## Tecnologias definidas na arquitetura
 
 * **Cliente:** HTML5, CSS3, JavaScript (com possibilidade de framework CSS leve, como Bootstrap)
 * **Servidor:** Java com Spring Boot
 * **Persistência:** PostgreSQL
 
-## Etapa atual
+## Estado atual do projeto
 
-Etapa 01: Proposta e Especificação do Projeto, concluída.
+Etapa 04: Interatividade com JavaScript, concluída.
 
-A especificação completa está disponível em [`docs/proposta.md`](docs/proposta.md).
+* A especificação completa da Etapa 01 está disponível em [`docs/proposta.md`](docs/proposta.md).
+* A documentação da Etapa 02 (protótipo estrutural em HTML) está disponível em [`docs/etapa-02.md`](docs/etapa-02.md).
+* A documentação da Etapa 03 (interface responsiva com CSS) está disponível em [`docs/etapa-03.md`](docs/etapa-03.md).
+* A documentação da Etapa 04 (interatividade com JavaScript) está disponível em [`docs/etapa-04.md`](docs/etapa-04.md).
+* As páginas do sistema estão em [`src/`](src), começando por [`src/index.html`](src/index.html).
+
+Funcionalidades interativas implementadas na Etapa 04:
+
+* Busca e filtragem de projetos no Painel, sem recarregar a página;
+* Validação por JavaScript e cadastro dinâmico de cliente na lista de clientes;
+* Validação por JavaScript e confirmação de cadastro de novo projeto.
