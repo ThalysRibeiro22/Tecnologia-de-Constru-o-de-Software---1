@@ -54,7 +54,7 @@
     <section class="sheet" aria-labelledby="filtros-heading">
       <h2 id="filtros-heading">Buscar projetos</h2>
       <p class="sheet__meta">filtro por cliente ou status</p>
-      <form action="#" method="get">
+      <form action="#" method="get" id="form-busca">
         <div class="field field--narrow">
           <label for="busca-cliente">Cliente</label>
           <input type="search" id="busca-cliente" name="cliente" placeholder="Nome do cliente" />
@@ -78,8 +78,8 @@
 
     <section aria-labelledby="lista-heading">
       <h2 id="lista-heading">Projetos recentes</h2>
-      <div class="card-list">
-        <article class="card">
+      <div class="card-list" id="lista-projetos">
+        <article class="card" data-status="producao">
           <div class="card__top">
             <h3 class="card__title">Armário planejado - sala de estar</h3>
             <span class="tag tag--producao">Em produção</span>
@@ -92,7 +92,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-status="orcamento">
           <div class="card__top">
             <h3 class="card__title">Cozinha planejada completa</h3>
             <span class="tag tag--pendente">Orçamento pendente</span>
@@ -105,7 +105,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-status="aprovado">
           <div class="card__top">
             <h3 class="card__title">Guarda-roupa casal</h3>
             <span class="tag tag--aprovado">Aprovado</span>
@@ -118,7 +118,7 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card" data-status="entregue">
           <div class="card__top">
             <h3 class="card__title">Escrivaninha para home office</h3>
             <span class="tag tag--entregue">Entregue</span>
@@ -137,7 +137,7 @@
   <footer class="site-footer">
     <p>MadeiraFlow &mdash; sistema de gerenciamento de marcenaria. Protótipo estrutural, Etapa 02.</p>
   </footer>
+
+  <script src="js/script.js" defer></script>
 </body>
 </html>
-
-feat: responsividade da etapa 03 - index

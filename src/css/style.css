@@ -263,6 +263,13 @@ main {
   gap: 8px;
 }
 
+/* Sem esta regra, "display: grid" acima venceria o comportamento padrão
+   do atributo [hidden], e a busca do Painel não conseguiria ocultar os
+   cards que não correspondem ao filtro. */
+.card[hidden] {
+  display: none;
+}
+
 .card__top {
   display: flex;
   align-items: center;
@@ -396,6 +403,41 @@ fieldset legend {
   display: flex;
   gap: 12px;
   align-items: center;
+}
+
+/* Feedback de formulário (Etapa 04): reaproveita as cores já usadas nas
+   etiquetas de status, para manter a mesma linguagem visual. */
+
+.field-error {
+  display: block;
+  min-height: 1.1em;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--clay);
+}
+
+.field.has-error input,
+.field.has-error select,
+.field.has-error textarea {
+  border-color: var(--clay);
+}
+
+.form-success {
+  background-color: rgba(124, 148, 115, 0.15);
+  border: 1px solid var(--sage);
+  color: var(--paper);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 4px;
+  font-size: 0.92rem;
+}
+
+/* Mensagem exibida quando a busca de projetos não encontra resultados */
+.empty-state {
+  grid-column: 1 / -1;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--paper-muted);
+  padding: var(--space-md) 0;
 }
 
 button,
@@ -637,4 +679,3 @@ tfoot td {
     gap: var(--space-2xs);
   }
 }
-feat: responsividade da etapa 03 - index
