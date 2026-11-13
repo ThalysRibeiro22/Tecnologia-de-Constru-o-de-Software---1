@@ -1,4 +1,3 @@
-[proposta.md](https://github.com/user-attachments/files/31497222/proposta.md)
 # ETAPA 01: PROPOSTA E ESPECIFICAÇÃO DO PROJETO
 
 ## 1. Nome da aplicação

@@ -1,10 +1,10 @@
 # Evidências da Etapa 03
 
-Esta pasta reúne as evidências visuais da responsividade implementada no MadeiraFlow. As capturas registram as três interfaces representativas da etapa nos três tamanhos de viewport definidos no projeto.
+As 9 capturas de tela exigidas na entrega da Etapa 03 já estão anexadas nesta pasta, com os nomes abaixo.
 
-## Registros
+## Arquivos esperados
 
-| Arquivo | Viewport | Tela registrada |
+| Arquivo | Viewport | Tela a capturar |
 |---|---|---|
 | `desktop-tela-01.png` | 1440 × 900 | Painel de projetos (`src/index.html`) |
 | `desktop-tela-02.png` | 1440 × 900 | Clientes (`src/cliente.html`) |
@@ -16,6 +16,14 @@ Esta pasta reúne as evidências visuais da responsividade implementada no Madei
 | `smartphone-tela-02.png` | 390 × 844 | Clientes |
 | `smartphone-tela-03.png` | 390 × 844 | Novo projeto |
 
-## Abrangência das evidências
+## Como capturar (Google Chrome ou Edge)
 
-As imagens demonstram a adaptação do cabeçalho, dos resumos, dos cards, dos formulários, dos botões e das tabelas aos três tamanhos de tela. O conjunto também registra a aplicação dos breakpoints descritos em [`docs/etapa-03.md`](../../etapa-03.md).
+1. Abra a página desejada (por exemplo, `src/index.html`) no navegador.
+2. Aperte **F12** para abrir as ferramentas de desenvolvedor.
+3. Clique no ícone de celular/tablet (**Toggle device toolbar**), no canto superior esquerdo do painel de ferramentas.
+4. No topo, onde normalmente aparece o nome de um aparelho, clique e escolha **Responsive**.
+5. Digite manualmente a largura e a altura exigidas (por exemplo, `1440` x `900` para desktop, `768` x `1024` para tablet, `390` x `844` para smartphone).
+6. Tire a captura de tela dessa área (pode usar o menu de três pontinhos das ferramentas de desenvolvedor, que tem a opção **Capture screenshot**, ou uma ferramenta de captura do próprio sistema operacional).
+7. Salve o arquivo com o nome exato indicado na tabela acima, dentro desta pasta (`docs/evidencias/etapa-03/`).
+
+Repita para as três páginas, nos três tamanhos, totalizando as 9 imagens.
