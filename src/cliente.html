@@ -34,6 +34,7 @@
       <p class="sheet__meta">dados de contato</p>
       <form action="#" method="post" id="form-cliente" novalidate>
         <p class="form-success" id="cliente-sucesso" role="status" hidden>Cliente cadastrado com sucesso!</p>
+        <p class="form-erro" id="cliente-erro" role="alert" hidden></p>
         <fieldset>
           <legend>Identificação</legend>
           <div class="field">
@@ -76,40 +77,10 @@
 
     <section aria-labelledby="lista-clientes-heading">
       <h2 id="lista-clientes-heading">Clientes cadastrados</h2>
-      <div class="card-list" id="lista-clientes">
-        <article class="card">
-          <div class="card__top">
-            <h3 class="card__title">Renata Almeida</h3>
-          </div>
-          <p class="card__desc">(11) 98765-4321 &middot; renata.almeida@email.com</p>
-          <div class="card__footer">
-            <span>2 projetos vinculados</span>
-            <a href="index.html">Ver projetos</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card__top">
-            <h3 class="card__title">João Pedro Santos</h3>
-          </div>
-          <p class="card__desc">(11) 91234-5678 &middot; joao.santos@email.com</p>
-          <div class="card__footer">
-            <span>1 projeto vinculado</span>
-            <a href="projeto-cozinha.html">Ver projeto</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card__top">
-            <h3 class="card__title">Marcos Vinícius Lima</h3>
-          </div>
-          <p class="card__desc">(11) 99876-1122 &middot; marcos.lima@email.com</p>
-          <div class="card__footer">
-            <span>1 projeto vinculado</span>
-            <a href="projeto-guarda-roupa.html">Ver projeto</a>
-          </div>
-        </article>
-      </div>
+      <div class="card-list" id="lista-clientes"></div>
+      <noscript>
+        <p class="empty-state">Para visualizar os clientes, ative o JavaScript no navegador.</p>
+      </noscript>
     </section>
   </main>
 
@@ -117,6 +88,6 @@
     <p>MadeiraFlow &mdash; sistema de gerenciamento de marcenaria. Protótipo estrutural, Etapa 02.</p>
   </footer>
 
-  <script src="js/script.js" defer></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

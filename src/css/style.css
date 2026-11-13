@@ -1,17 +1,68 @@
+/* ==========================================================================
+   GUIA DE CORES E BOTÕES
+
+   Para achar rápido, use Ctrl+F e procure por: COR, BOTÃO, MENU, ETIQUETA,
+   ERRO, SUCESSO ou FOCO. Cada linha que usa cor tem um comentário ao lado.
+
+   Todas as cores do site ficam no bloco :root logo abaixo. Para trocar uma
+   cor em TODAS as páginas, mude só o valor da variável lá.
+
+   VARIÁVEL              VALOR      ONDE APARECE
+   --navy-deep           #16283a    fundo da página; fundo dos campos; texto dos botões,
+                                    das etiquetas e do item ativo do menu
+   --navy-panel          #1e3650    fundo dos painéis, cards e caixas de resumo
+   --navy-panel-raised   #24405f    (não é usada hoje)
+   --line                #35526f    grade do fundo; bordas de painéis, cards, campos,
+                                    tabelas e rodapé; contorno do botão secundário
+   --paper               #e8e1d3    texto principal (títulos, rótulos, texto dos campos)
+   --paper-muted         #9fb2c4    texto secundário; etiqueta "Entregue"
+   --brass               #c98a4b    BOTÃO principal (fundo e borda); contorno de foco;
+                                    cantos dos painéis; spinner de carregamento
+   --brass-soft          #e0aa72    links; item ativo do menu; números do resumo;
+                                    etiquetas (padrão e "Em produção"); títulos de tabela
+   --sage                #607957    etiqueta "Aprovado"; borda das mensagens de sucesso
+   --amber               #d9a441    etiqueta "Orçamento pendente"
+   --clay                #b96b52    texto e bordas de erro
+   --sage-soft / --clay-soft / --header-bg
+                                    versões translúcidas (rgba) de sage, clay e navy-deep,
+                                    usadas como fundo de caixas de aviso e do cabeçalho
+
+   BOTÕES
+   - Botão principal (Salvar, Filtrar, Criar projeto):
+       regra "button, .button" -> fundo e borda --brass, texto --navy-deep.
+   - Botão secundário (Limpar, Tentar novamente):
+       regra "button.secondary" -> fundo transparente, texto --paper, borda --line.
+   - Botão desabilitado (durante o "Salvando..."):
+       regra "button:disabled" -> só reduz a opacidade, não tem cor própria.
+   - Itens do menu (Painel, Clientes, Novo projeto):
+       regras ".main-nav a" -> texto --paper-muted; ativo: fundo --brass-soft e
+       texto --navy-deep.
+
+   ATENÇÃO: --sage-soft, --clay-soft e --header-bg estão escritas em
+   rgba(R, G, B, transparência) e NÃO acompanham as outras automaticamente.
+   Ao trocar --sage, --clay ou --navy-deep, atualize também a versão
+   translúcida correspondente com o mesmo tom em RGB.
+   ========================================================================== */
+
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
 :root {
-  --navy-deep: #16283a;
-  --navy-panel: #1e3650;
-  --navy-panel-raised: #24405f;
-  --line: #35526f;
-  --paper: #e8e1d3;
-  --paper-muted: #9fb2c4;
-  --brass: #c98a4b;
-  --brass-soft: #e0aa72;
-  --sage: #7c9473;
-  --amber: #d9a441;
-  --clay: #b96b52;
+  --navy-deep: #16283a; /* COR: fundo da página, fundo dos campos de formulário e texto sobre botões/etiquetas */
+  --navy-panel: #1e3650; /* COR: fundo dos painéis, dos cards e das caixas de resumo */
+  --navy-panel-raised: #24405f; /* COR: reservada, não é usada em nenhum lugar hoje */
+  --line: #35526f; /* COR: linhas da grade do fundo, bordas de painéis/cards/campos/tabelas e contorno do botão secundário */
+  --paper: #e8e1d3; /* COR: texto principal (títulos, rótulos, texto digitado nos campos) */
+  --paper-muted: #9fb2c4; /* COR: texto secundário e etiqueta 'Entregue' */
+  --brass: #c98a4b; /* COR / BOTÃO: botão principal (fundo e borda), contorno de foco, cantos dos painéis e spinner */
+  --brass-soft: #e0aa72; /* COR: links, item ativo do menu, números do resumo, etiquetas e títulos de tabela */
+  --sage: #607957; /* COR: etiqueta 'Aprovado' e borda das mensagens de sucesso */
+  --amber: #d9a441; /* COR: etiqueta 'Orçamento pendente' */
+  --clay: #b96b52; /* COR: texto e bordas de erro */
+
+  /* Versões translúcidas, usadas como fundo de caixas de aviso */
+  --clay-soft: rgba(185, 107, 82, 0.15); /* COR: fundo das caixas de erro. Está em rgba: se mudar --clay, ajuste o RGB aqui também */
+  --sage-soft: rgba(96, 121, 87, 0.15); /* COR: fundo das caixas de sucesso. Está em rgba: se mudar --sage, ajuste o RGB aqui também */
+  --header-bg: rgba(22, 40, 58, 0.92); /* COR: fundo do cabeçalho. Está em rgba: se mudar --navy-deep, ajuste o RGB aqui também */
 
   --font-display: "Big Shoulders Display", sans-serif;
   --font-body: "IBM Plex Sans", sans-serif;
@@ -35,19 +86,25 @@
   box-sizing: border-box;
 }
 
+/* Garante que o atributo [hidden] sempre esconda o elemento, mesmo quando uma
+   classe define "display" (era a causa do bug da busca na Etapa 04). */
+[hidden] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background-color: var(--navy-deep);
+  background-color: var(--navy-deep); /* COR fundo: --navy-deep (azul-marinho escuro) */
   background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    linear-gradient(var(--line) 1px, transparent 1px), /* COR linhas da grade do fundo: --line (azul das linhas e bordas) */
+    linear-gradient(90deg, var(--line) 1px, transparent 1px); /* COR linhas da grade do fundo: --line (azul das linhas e bordas) */
   background-size: 42px 42px;
   background-attachment: fixed;
-  color: var(--paper);
+  color: var(--paper); /* COR texto: --paper (creme, texto principal) */
   font-family: var(--font-body);
   line-height: 1.55;
   min-height: 100vh;
@@ -57,7 +114,7 @@ body {
 }
 
 a {
-  color: var(--brass-soft);
+  color: var(--brass-soft); /* COR texto: --brass-soft (cobre claro, destaques) */
 }
 
 a:focus-visible,
@@ -65,15 +122,15 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--brass);
+  outline: 2px solid var(--brass); /* FOCO (navegação por teclado) borda: --brass (cobre, cor principal) */
   outline-offset: 2px;
 }
 
 /* Cabeçalho e navegação */
 
 .site-header {
-  border-bottom: 1px solid var(--line);
-  background-color: rgba(22, 40, 58, 0.92);
+  border-bottom: 1px solid var(--line); /* COR borda: --line (azul das linhas e bordas) */
+  background-color: var(--header-bg); /* COR fundo: --header-bg (azul translúcido do cabeçalho) */
   backdrop-filter: blur(3px);
   position: sticky;
   top: 0;
@@ -102,14 +159,14 @@ textarea:focus-visible {
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--paper);
+  color: var(--paper); /* COR texto: --paper (creme, texto principal) */
   letter-spacing: 0.01em;
 }
 
 .brand__tag {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--brass-soft);
+  color: var(--brass-soft); /* COR texto: --brass-soft (cobre claro, destaques) */
 }
 
 .main-nav ul {
@@ -127,18 +184,18 @@ textarea:focus-visible {
   border-radius: 3px;
   text-decoration: none;
   font-size: 0.95rem;
-  color: var(--paper-muted);
+  color: var(--paper-muted); /* MENU texto: --paper-muted (cinza-azulado, texto secundário) */
   border: 1px solid transparent;
 }
 
 .main-nav a:hover {
-  color: var(--paper);
-  border-color: var(--line);
+  color: var(--paper); /* MENU texto: --paper (creme, texto principal) */
+  border-color: var(--line); /* MENU borda: --line (azul das linhas e bordas) */
 }
 
 .main-nav a[aria-current="page"] {
-  color: var(--navy-deep);
-  background-color: var(--brass-soft);
+  color: var(--navy-deep); /* MENU texto: --navy-deep (azul-marinho escuro) */
+  background-color: var(--brass-soft); /* MENU fundo: --brass-soft (cobre claro, destaques) */
   font-weight: 500;
 }
 
@@ -161,12 +218,12 @@ main {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4vw, 3rem);
   margin: 0 0 10px;
-  color: var(--paper);
+  color: var(--paper); /* COR texto: --paper (creme, texto principal) */
   line-height: 1;
 }
 
 .page-intro p {
-  color: var(--paper-muted);
+  color: var(--paper-muted); /* COR texto: --paper-muted (cinza-azulado, texto secundário) */
   font-size: 1.02rem;
 }
 
@@ -174,8 +231,8 @@ main {
 
 .sheet {
   position: relative;
-  background-color: var(--navy-panel);
-  border: 1px solid var(--line);
+  background-color: var(--navy-panel); /* COR fundo: --navy-panel (azul dos painéis) */
+  border: 1px solid var(--line); /* COR borda: --line (azul das linhas e bordas) */
   border-radius: 4px;
   padding: 28px;
   margin-bottom: 28px;
@@ -187,7 +244,7 @@ main {
   position: absolute;
   width: 14px;
   height: 14px;
-  border-color: var(--brass);
+  border-color: var(--brass); /* COR borda: --brass (cobre, cor principal) */
   border-style: solid;
   opacity: 0.8;
 }
@@ -208,13 +265,13 @@ main {
   font-family: var(--font-display);
   font-size: 1.5rem;
   margin: 0 0 6px;
-  color: var(--paper);
+  color: var(--paper); /* COR texto: --paper (creme, texto principal) */
 }
 
 .sheet__meta {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--paper-muted);
+  color: var(--paper-muted); /* COR texto: --paper-muted (cinza-azulado, texto secundário) */
   margin-bottom: 20px;
 }
 
@@ -228,22 +285,22 @@ main {
 }
 
 .summary__item {
-  border: 1px solid var(--line);
+  border: 1px solid var(--line); /* COR borda: --line (azul das linhas e bordas) */
   border-radius: 4px;
   padding: 16px 18px;
-  background-color: var(--navy-panel);
+  background-color: var(--navy-panel); /* COR fundo: --navy-panel (azul dos painéis) */
 }
 
 .summary__value {
   font-family: var(--font-display);
   font-size: 2.1rem;
-  color: var(--brass-soft);
+  color: var(--brass-soft); /* COR texto: --brass-soft (cobre claro, destaques) */
   line-height: 1;
 }
 
 .summary__label {
   font-size: 0.86rem;
-  color: var(--paper-muted);
+  color: var(--paper-muted); /* COR texto: --paper-muted (cinza-azulado, texto secundário) */
   margin-top: 4px;
 }
 
@@ -255,9 +312,9 @@ main {
 }
 
 .card {
-  border: 1px solid var(--line);
+  border: 1px solid var(--line); /* COR borda: --line (azul das linhas e bordas) */
   border-radius: 4px;
-  background-color: var(--navy-panel);
+  background-color: var(--navy-panel); /* COR fundo: --navy-panel (azul dos painéis) */
   padding: 18px 20px;
   display: grid;
   gap: 8px;
@@ -282,16 +339,16 @@ main {
   font-family: var(--font-display);
   font-size: 1.25rem;
   margin: 0;
-  color: var(--paper);
+  color: var(--paper); /* COR texto: --paper (creme, texto principal) */
 }
 
 .card__client {
   font-size: 0.88rem;
-  color: var(--paper-muted);
+  color: var(--paper-muted); /* COR texto: --paper-muted (cinza-azulado, texto secundário) */
 }
 
 .card__desc {
-  color: var(--paper-muted);
+  color: var(--paper-muted); /* COR texto: --paper-muted (cinza-azulado, texto secundário) */
   font-size: 0.95rem;
   margin: 0;
 }
@@ -315,26 +372,26 @@ main {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   padding: 5px 12px 5px 10px;
-  color: var(--navy-deep);
-  background-color: var(--brass-soft);
+  color: var(--navy-deep); /* ETIQUETA texto: --navy-deep (azul-marinho escuro) */
+  background-color: var(--brass-soft); /* ETIQUETA fundo: --brass-soft (cobre claro, destaques) */
   clip-path: polygon(0 0, 100% 0, 100% 100%, 8px 100%, 0 60%);
   white-space: nowrap;
 }
 
 .tag--pendente {
-  background-color: var(--amber);
+  background-color: var(--amber); /* ETIQUETA fundo: --amber (âmbar, orçamento pendente) */
 }
 
 .tag--aprovado {
-  background-color: var(--sage);
+  background-color: var(--sage); /* ETIQUETA fundo: --sage (verde, aprovado/sucesso) */
 }
 
 .tag--producao {
-  background-color: var(--brass-soft);
+  background-color: var(--brass-soft); /* ETIQUETA fundo: --brass-soft (cobre claro, destaques) */
 }
 
 .tag--entregue {
-  background-color: var(--paper-muted);
+  background-color: var(--paper-muted); /* ETIQUETA fundo: --paper-muted (cinza-azulado, texto secundário) */
 }
 
 /* Formulários */
@@ -352,13 +409,13 @@ form {
 
 .field label {
   font-size: 0.9rem;
-  color: var(--paper);
+  color: var(--paper); /* COR texto: --paper (creme, texto principal) */
   font-weight: 500;
 }
 
 .field .hint {
   font-size: 0.8rem;
-  color: var(--paper-muted);
+  color: var(--paper-muted); /* COR texto: --paper-muted (cinza-azulado, texto secundário) */
   font-weight: 400;
 }
 
@@ -374,9 +431,9 @@ textarea {
   font-size: 0.95rem;
   padding: 10px 12px;
   border-radius: 3px;
-  border: 1px solid var(--line);
-  background-color: var(--navy-deep);
-  color: var(--paper);
+  border: 1px solid var(--line); /* COR borda: --line (azul das linhas e bordas) */
+  background-color: var(--navy-deep); /* COR fundo: --navy-deep (azul-marinho escuro) */
+  color: var(--paper); /* COR texto: --paper (creme, texto principal) */
 }
 
 textarea {
@@ -385,7 +442,7 @@ textarea {
 }
 
 fieldset {
-  border: 1px solid var(--line);
+  border: 1px solid var(--line); /* COR borda: --line (azul das linhas e bordas) */
   border-radius: 4px;
   padding: 18px 20px 22px;
   display: grid;
@@ -395,7 +452,7 @@ fieldset {
 fieldset legend {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--brass-soft);
+  color: var(--brass-soft); /* COR texto: --brass-soft (cobre claro, destaques) */
   padding: 0 6px;
 }
 
@@ -413,19 +470,32 @@ fieldset legend {
   min-height: 1.1em;
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--clay);
+  color: var(--clay); /* ERRO texto: --clay (terracota, erro) */
 }
 
 .field.has-error input,
 .field.has-error select,
 .field.has-error textarea {
-  border-color: var(--clay);
+  border-color: var(--clay); /* ERRO borda: --clay (terracota, erro) */
 }
 
-.form-success {
-  background-color: rgba(124, 148, 115, 0.15);
-  border: 1px solid var(--sage);
-  color: var(--paper);
+.form-success,
+.estado--sucesso {
+  background-color: var(--sage-soft); /* SUCESSO fundo: --sage-soft (verde translúcido) */
+  border: 1px solid var(--sage); /* SUCESSO borda: --sage (verde, aprovado/sucesso) */
+  color: var(--paper); /* SUCESSO texto: --paper (creme, texto principal) */
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 4px;
+  font-size: 0.92rem;
+}
+
+/* Mensagem de erro ao enviar um formulário (Etapa 05): mesmo formato da de
+   sucesso, na cor de erro. */
+.form-erro,
+.estado--erro {
+  background-color: var(--clay-soft); /* ERRO fundo: --clay-soft (terracota translúcido) */
+  border: 1px solid var(--clay); /* ERRO borda: --clay (terracota, erro) */
+  color: var(--paper); /* ERRO texto: --paper (creme, texto principal) */
   padding: var(--space-sm) var(--space-md);
   border-radius: 4px;
   font-size: 0.92rem;
@@ -436,7 +506,7 @@ fieldset legend {
   grid-column: 1 / -1;
   font-family: var(--font-mono);
   font-size: 0.9rem;
-  color: var(--paper-muted);
+  color: var(--paper-muted); /* COR texto: --paper-muted (cinza-azulado, texto secundário) */
   padding: var(--space-md) 0;
 }
 
@@ -447,9 +517,9 @@ button,
   font-weight: 500;
   padding: 11px 22px;
   border-radius: 3px;
-  border: 1px solid var(--brass);
-  background-color: var(--brass);
-  color: var(--navy-deep);
+  border: 1px solid var(--brass); /* BOTÃO borda: --brass (cobre, cor principal) */
+  background-color: var(--brass); /* BOTÃO fundo: --brass (cobre, cor principal) */
+  color: var(--navy-deep); /* BOTÃO texto: --navy-deep (azul-marinho escuro) */
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
@@ -458,8 +528,70 @@ button,
 button.secondary,
 .button.secondary {
   background-color: transparent;
-  color: var(--paper);
-  border-color: var(--line);
+  color: var(--paper); /* BOTÃO texto: --paper (creme, texto principal) */
+  border-color: var(--line); /* BOTÃO borda: --line (azul das linhas e bordas) */
+}
+
+/* Estados das operações assíncronas (Etapa 05): carregando, erro e sucesso.
+   Aparecem acima das listas e do campo "Cliente", dentro de .area-estado. */
+
+.area-estado:empty {
+  display: none;
+}
+
+.area-estado {
+  margin-bottom: var(--space-md);
+}
+
+.estado {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.estado--carregando {
+  padding: var(--space-sm) var(--space-md);
+  border: 1px dashed var(--line); /* COR borda: --line (azul das linhas e bordas) */
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--paper-muted); /* COR texto: --paper-muted (cinza-azulado, texto secundário) */
+}
+
+/* Botão "Tentar novamente" dentro da mensagem de erro */
+.estado--erro button {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+}
+
+/* Indicador giratório do carregamento */
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--line); /* COR borda: --line (azul das linhas e bordas) */
+  border-top-color: var(--brass); /* COR borda: --brass (cobre, cor principal) */
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 2.4s;
+  }
+}
+
+/* Botão desabilitado enquanto uma operação está em andamento ("Salvando...") */
+button:disabled,
+select:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
 }
 
 /* Tabela de materiais e orçamento */
@@ -488,7 +620,7 @@ caption {
   text-align: left;
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--paper-muted);
+  color: var(--paper-muted); /* COR texto: --paper-muted (cinza-azulado, texto secundário) */
   margin-bottom: 10px;
 }
 
@@ -496,20 +628,20 @@ th,
 td {
   text-align: left;
   padding: 10px 12px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--line); /* COR borda: --line (azul das linhas e bordas) */
 }
 
 th {
   font-weight: 500;
-  color: var(--brass-soft);
+  color: var(--brass-soft); /* COR texto: --brass-soft (cobre claro, destaques) */
   font-size: 0.82rem;
 }
 
 tfoot td {
   font-weight: 600;
   border-bottom: none;
-  border-top: 1px solid var(--line);
-  color: var(--paper);
+  border-top: 1px solid var(--line); /* COR borda: --line (azul das linhas e bordas) */
+  color: var(--paper); /* COR texto: --paper (creme, texto principal) */
 }
 
 /* Linha do tempo do projeto */
@@ -532,22 +664,22 @@ tfoot td {
 .timeline time {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--paper-muted);
+  color: var(--paper-muted); /* COR texto: --paper-muted (cinza-azulado, texto secundário) */
 }
 
 .timeline li[data-current="true"] p {
-  color: var(--brass-soft);
+  color: var(--brass-soft); /* COR texto: --brass-soft (cobre claro, destaques) */
   font-weight: 500;
 }
 
 /* Rodapé */
 
 .site-footer {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--line); /* COR borda: --line (azul das linhas e bordas) */
   padding: 22px 24px;
   text-align: center;
   font-size: 0.82rem;
-  color: var(--paper-muted);
+  color: var(--paper-muted); /* COR texto: --paper-muted (cinza-azulado, texto secundário) */
 }
 
 /* ==========================================================================

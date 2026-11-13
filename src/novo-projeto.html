@@ -34,15 +34,13 @@
       <p class="sheet__meta">campos marcados com * são obrigatórios</p>
       <form action="#" method="post" id="form-projeto" novalidate>
         <p class="form-success" id="projeto-sucesso" role="status" hidden></p>
+        <p class="form-erro" id="projeto-erro" role="alert" hidden></p>
         <fieldset>
           <legend>Vínculo com o cliente</legend>
           <div class="field">
             <label for="cliente">Cliente *</label>
             <select id="cliente" name="cliente" required>
               <option value="">Selecione um cliente</option>
-              <option value="renata-almeida">Renata Almeida</option>
-              <option value="joao-santos">João Pedro Santos</option>
-              <option value="marcos-lima">Marcos Vinícius Lima</option>
             </select>
             <span class="field-error" id="erro-cliente" aria-live="polite"></span>
           </div>
@@ -94,6 +92,6 @@
     <p>MadeiraFlow &mdash; sistema de gerenciamento de marcenaria. Protótipo estrutural, Etapa 02.</p>
   </footer>
 
-  <script src="js/script.js" defer></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
