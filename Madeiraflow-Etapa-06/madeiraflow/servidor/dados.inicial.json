@@ -1,0 +1,72 @@
+{
+  "clientes": [
+    {
+      "id": "renata-almeida",
+      "nome": "Renata Almeida",
+      "telefone": "(11) 98765-4321",
+      "email": "renata.almeida@email.com"
+    },
+    {
+      "id": "joao-santos",
+      "nome": "João Pedro Santos",
+      "telefone": "(11) 91234-5678",
+      "email": "joao.santos@email.com"
+    },
+    {
+      "id": "marcos-lima",
+      "nome": "Marcos Vinícius Lima",
+      "telefone": "(11) 99876-1122",
+      "email": "marcos.lima@email.com"
+    }
+  ],
+  "projetos": [
+    {
+      "id": "projeto-armario-sala",
+      "titulo": "Armário planejado - sala de estar",
+      "clienteId": "renata-almeida",
+      "clienteNome": "Renata Almeida",
+      "ambiente": "sala de estar",
+      "descricao": "Armário sob medida com portas de correr e nichos para TV.",
+      "status": "producao",
+      "statusLabel": "Em produção",
+      "dataCriacao": "12/08/2026",
+      "link": "projeto-armario-sala.html"
+    },
+    {
+      "id": "projeto-cozinha",
+      "titulo": "Cozinha planejada completa",
+      "clienteId": "joao-santos",
+      "clienteNome": "João Pedro Santos",
+      "ambiente": "cozinha",
+      "descricao": "Cozinha em L com bancada e armários superiores.",
+      "status": "orcamento",
+      "statusLabel": "Orçamento pendente",
+      "dataCriacao": "20/08/2026",
+      "link": "projeto-cozinha.html"
+    },
+    {
+      "id": "projeto-guarda-roupa",
+      "titulo": "Guarda-roupa casal",
+      "clienteId": "marcos-lima",
+      "clienteNome": "Marcos Vinícius Lima",
+      "ambiente": "quarto do casal",
+      "descricao": "Guarda-roupa de 6 portas com espelho central.",
+      "status": "aprovado",
+      "statusLabel": "Aprovado",
+      "dataCriacao": "25/08/2026",
+      "link": "projeto-guarda-roupa.html"
+    },
+    {
+      "id": "projeto-escrivaninha",
+      "titulo": "Escrivaninha para home office",
+      "clienteId": "renata-almeida",
+      "clienteNome": "Renata Almeida",
+      "ambiente": "home office",
+      "descricao": "Escrivaninha compacta com gaveteiro e nichos.",
+      "status": "entregue",
+      "statusLabel": "Entregue",
+      "dataCriacao": "02/07/2026",
+      "link": "projeto-escrivaninha.html"
+    }
+  ]
+}
