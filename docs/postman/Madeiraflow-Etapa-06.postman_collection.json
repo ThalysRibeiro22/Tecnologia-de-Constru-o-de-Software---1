@@ -1,0 +1,35 @@
+{
+  "info": {
+    "_postman_id": "30f765a2-16a7-4a0d-9a90-006e84d12006",
+    "name": "Madeiraflow - Etapa 06",
+    "description": "Operações CRUD de clientes e projetos da API REST MadeiraFlow. Execute as criações antes das consultas, alterações e exclusões individuais.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "clienteId", "value": "" },
+    { "key": "projetoId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        { "name": "Listar clientes", "request": { "method": "GET", "url": "{{baseUrl}}/api/clientes" } },
+        { "name": "Cadastrar cliente", "event": [{ "listen": "test", "script": { "exec": ["const body = pm.response.json();", "if (body.dados && body.dados.id) pm.collectionVariables.set('clienteId', body.dados.id);", "pm.test('Criado com HTTP 201', function () { pm.response.to.have.status(201); });"], "type": "text/javascript" } }], "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Cliente de demonstração\",\n  \"telefone\": \"(11) 99999-1234\",\n  \"email\": \"cliente@example.com\"\n}", "options": { "raw": { "language": "json" } } }, "url": "{{baseUrl}}/api/clientes" } },
+        { "name": "Consultar cliente por ID", "request": { "method": "GET", "url": "{{baseUrl}}/api/clientes/{{clienteId}}" } },
+        { "name": "Atualizar cliente", "request": { "method": "PUT", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Cliente de demonstração atualizado\",\n  \"telefone\": \"(11) 99999-4321\",\n  \"email\": \"cliente@example.com\"\n}", "options": { "raw": { "language": "json" } } }, "url": "{{baseUrl}}/api/clientes/{{clienteId}}" } },
+        { "name": "Excluir cliente", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/clientes/{{clienteId}}" } }
+      ]
+    },
+    {
+      "name": "Projetos",
+      "item": [
+        { "name": "Listar projetos", "request": { "method": "GET", "url": "{{baseUrl}}/api/projetos" } },
+        { "name": "Cadastrar projeto", "event": [{ "listen": "test", "script": { "exec": ["const body = pm.response.json();", "if (body.dados && body.dados.id) pm.collectionVariables.set('projetoId', body.dados.id);", "pm.test('Criado com HTTP 201', function () { pm.response.to.have.status(201); });"], "type": "text/javascript" } }], "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"clienteId\": \"marcos-lima\",\n  \"titulo\": \"Projeto de demonstração\",\n  \"ambiente\": \"Sala\",\n  \"descricao\": \"Projeto criado pela coleção Postman\",\n  \"status\": \"orcamento\"\n}", "options": { "raw": { "language": "json" } } }, "url": "{{baseUrl}}/api/projetos" } },
+        { "name": "Consultar projeto por ID", "request": { "method": "GET", "url": "{{baseUrl}}/api/projetos/{{projetoId}}" } },
+        { "name": "Atualizar projeto", "request": { "method": "PUT", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"clienteId\": \"marcos-lima\",\n  \"titulo\": \"Projeto de demonstração atualizado\",\n  \"ambiente\": \"Sala\",\n  \"descricao\": \"Projeto atualizado pela coleção Postman\",\n  \"status\": \"aprovado\"\n}", "options": { "raw": { "language": "json" } } }, "url": "{{baseUrl}}/api/projetos/{{projetoId}}" } },
+        { "name": "Excluir projeto", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/projetos/{{projetoId}}" } }
+      ]
+    }
+  ]
+}

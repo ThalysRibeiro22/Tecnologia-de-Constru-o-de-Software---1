@@ -28,7 +28,9 @@ async function criarErroHttp(resposta) {
 
   try {
     const corpo = await resposta.json();
-    if (corpo && corpo.erro) mensagem = corpo.erro;
+    if (corpo && corpo.erro) {
+      mensagem = typeof corpo.erro === "string" ? corpo.erro : corpo.erro.mensagem || mensagem;
+    }
   } catch (erro) {
     // resposta sem JSON: fica a mensagem genérica acima
   }
@@ -57,7 +59,9 @@ async function requisitar(caminho, opcoes = {}, limiteMs = LIMITE_PADRAO_MS) {
     if (resposta.status === 204) return null;
 
     try {
-      return await resposta.json();
+      const corpo = await resposta.json();
+      // As respostas da API seguem o envelope { dados, mensagem }.
+      return corpo && Object.prototype.hasOwnProperty.call(corpo, "dados") ? corpo.dados : corpo;
     } catch (erro) {
       if (erro && erro.name === "AbortError") throw erro;
       throw new ErroDeApi("A resposta do servidor não pôde ser interpretada.", {
@@ -102,4 +106,22 @@ export function enviar(caminho, dados, { limiteMs } = {}) {
     },
     limiteMs
   );
+}
+
+// Atualização completa (PUT)
+export function atualizar(caminho, dados, { limiteMs } = {}) {
+  return requisitar(
+    caminho,
+    {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dados),
+    },
+    limiteMs
+  );
+}
+
+// Exclusão (DELETE)
+export function excluir(caminho, { limiteMs } = {}) {
+  return requisitar(caminho, { method: "DELETE" }, limiteMs);
 }

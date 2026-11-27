@@ -1,11 +1,12 @@
 {
   "name": "madeiraflow",
   "version": "1.0.0",
-  "description": "MadeiraFlow - Sistema de Gerenciamento de Marcenaria (front-end modular com API simulada)",
+  "description": "MadeiraFlow - Sistema de Gerenciamento de Marcenaria com API REST",
   "private": true,
   "scripts": {
     "start": "node servidor/servidor.js",
-    "resetar": "node servidor/servidor.js --resetar"
+    "resetar": "node servidor/servidor.js --resetar",
+    "test": "node tests/api.test.js"
   },
   "engines": {
     "node": ">=16"
