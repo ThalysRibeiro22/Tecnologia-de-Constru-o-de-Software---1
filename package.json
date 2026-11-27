@@ -1,14 +1,17 @@
 {
   "name": "madeiraflow",
   "version": "1.0.0",
-  "description": "MadeiraFlow - Sistema de Gerenciamento de Marcenaria com API REST",
+  "description": "MadeiraFlow - Sistema de Gerenciamento de Marcenaria com API REST e SQLite",
   "private": true,
   "scripts": {
     "start": "node servidor/servidor.js",
-    "resetar": "node servidor/servidor.js --resetar",
+    "resetar": "node servidor/resetar-banco.js",
     "test": "node tests/api.test.js"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=22"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.2.0"
   }
 }

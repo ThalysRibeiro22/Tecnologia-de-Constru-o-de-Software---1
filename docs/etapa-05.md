@@ -1,5 +1,7 @@
 # ETAPA 05: MODULARIZAÇÃO E COMUNICAÇÃO ASSÍNCRONA
 
+> Nota da evolução: o uso de `servidor/dados.json` descrito nesta etapa registra a implementação original da Etapa 05. A Etapa 07 mantém a API atual e migra os dados persistidos para SQLite; veja [`etapa-07.md`](etapa-07.md).
+
 Esta etapa evolui o sistema da [Etapa 04](etapa-04.md) em duas frentes: o JavaScript, antes concentrado em um único arquivo, passa a ser dividido em módulos ES6 com responsabilidades separadas; e os dados, antes guardados no `localStorage` do navegador, passam a ser consultados e enviados a uma API simulada por meio de requisições assíncronas. O HTML, o CSS, o visual, a responsividade, as validações, os filtros e a navegação foram preservados.
 
 ## 1. O que foi implementado

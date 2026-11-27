@@ -1,0 +1,21 @@
+erDiagram
+    CLIENTES ||--o{ PROJETOS : "possui"
+
+    CLIENTES {
+        TEXT id PK
+        TEXT nome
+        TEXT telefone
+        TEXT email
+        TEXT criado_em
+    }
+
+    PROJETOS {
+        TEXT id PK
+        TEXT titulo
+        TEXT cliente_id FK
+        TEXT ambiente
+        TEXT descricao
+        TEXT status
+        TEXT data_criacao
+        TEXT link
+    }

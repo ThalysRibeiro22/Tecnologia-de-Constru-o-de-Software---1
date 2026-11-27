@@ -1,5 +1,7 @@
 # Etapa 06 — API REST do MadeiraFlow
 
+> Nota da evolução: nesta etapa, o armazenamento era feito em `servidor/dados.json`. Na Etapa 07, a API e suas rotas foram preservadas e o armazenamento principal migrou para SQLite; veja [`etapa-07.md`](etapa-07.md).
+
 ## Objetivo e tecnologias
 
 A etapa evolui o servidor e a persistência da Etapa 05 para expor clientes e projetos por uma API REST funcional. O servidor usa Node.js 16 ou superior e os módulos nativos `http`, `fs` e `path`; a interface usa Fetch API e módulos ES6. Não há dependências externas. Os registros continuam salvos em `servidor/dados.json`, inicializado a partir de `servidor/dados.inicial.json`.
